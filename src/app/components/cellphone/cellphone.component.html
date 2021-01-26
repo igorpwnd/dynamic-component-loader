@@ -1,0 +1,8 @@
+<div class="calc">
+    <div class="display-number" style="height: 30%;">
+        <h1>{{ screenNumber }}</h1>
+    </div>
+    <div class="buttonsHolder">
+        <div (click)="addNumber(n)" *ngFor="let n of buttons">{{ n }} </div>
+    </div>
+</div>
