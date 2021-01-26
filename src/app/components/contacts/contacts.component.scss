@@ -1,0 +1,30 @@
+div:first-child {
+    background-color: #2b2b2b;
+    height: 100%;
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
+    color: white;
+    font-family: sans-serif;
+    li {
+        cursor: pointer;
+        padding: 10px 0;
+        border-bottom: 1px solid #8c8c8c;
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        p {
+            margin: 0;
+            font-size: 15px;
+            color: #77a7ff;
+        }
+    }
+    li:hover {
+        background-color: #404040;
+    }
+}

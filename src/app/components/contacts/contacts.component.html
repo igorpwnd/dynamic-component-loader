@@ -1,1 +1,8 @@
-<p>contacts works!</p>
+<div>
+    <ul>
+        <li *ngFor="let c of contacts">
+            <span>{{ c.name }}</span>
+            <p>{{ c.phone }}</p>
+        </li>
+    </ul>
+</div>

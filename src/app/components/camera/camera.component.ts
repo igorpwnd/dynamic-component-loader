@@ -12,14 +12,10 @@ export class CameraComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    console.log(this.video);
-    // this.video.nativeElement.srcObject = '/media/cc0-videos/flower.webm';
     if (navigator.mediaDevices?.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
         this.video.nativeElement.srcObject = stream;
-      }).catch((err) => {
-        console.log("Something went wrong!");
-      });
+      }).catch((err) => { console.log(':('); });
     }
   }
 

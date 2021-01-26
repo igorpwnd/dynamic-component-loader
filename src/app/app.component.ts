@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { CellphoneComponent } from './components/cellphone/cellphone.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { ClockComponent } from './components/clock/clock.component';
@@ -9,7 +9,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   @ViewChild('dynamic', { read: ViewContainerRef, static: true }) viewContainerRef: ViewContainerRef;
 
@@ -20,15 +20,13 @@ export class AppComponent {
     { name: 'Contacts', img: '/assets/contacts.png', component: ContactsComponent },
   ]
 
-  constructor(private factoryResolver: ComponentFactoryResolver) {
+  constructor(private factoryResolver: ComponentFactoryResolver) { }
 
-    setTimeout(() => {
-      this.injectComponent(CellphoneComponent);
-    }, 500);
+  ngOnInit(): void {
+    this.injectComponent(ContactsComponent);
   }
 
-  injectComponent(component: any) {
-    console.log(component);
+  injectComponent(component: any): void {
     const factory = this.factoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     const componente = this.viewContainerRef.createComponent<any>(factory);
