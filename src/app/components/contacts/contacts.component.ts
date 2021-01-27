@@ -20,9 +20,7 @@ export class ContactsComponent implements OnInit {
     { name: 'Tony Montana', phone: 'Unknown' },
   ];
 
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void { }
 
   fireCallingEvent(person) {
     this.calling.emit('fired', person);
