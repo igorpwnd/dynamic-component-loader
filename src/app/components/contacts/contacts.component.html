@@ -1,6 +1,7 @@
 <div>
+    <h1>{{ data }}</h1>
     <ul>
-        <li *ngFor="let c of contacts">
+        <li (click)="fireCallingEvent(c)" *ngFor="let c of contacts">
             <span>{{ c.name }}</span>
             <p>{{ c.phone }}</p>
         </li>

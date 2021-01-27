@@ -5,4 +5,11 @@
     <div class="bottom-bar">
         <img (click)="injectComponent(app.component)" *ngFor="let app of apps" [src]="app.img">
     </div>
+
+    <div *ngIf="callingNowObject" class="call-modal">
+        <h1>Calling</h1>
+        <h2>{{ callingNowObject.name }}</h2>
+        <h2>{{ callingNowObject.phone }}</h2>
+        <h1 (click)="callingNowObject=null" class="end-call">End Call</h1>
+    </div>
 </div>

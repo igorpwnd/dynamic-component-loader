@@ -25,3 +25,22 @@
     width: 100%;
     height: calc(100% - 70px);
 }
+
+.call-modal {
+    background-color: #eeeeffe3;
+    border-radius: 20px;
+    height: 150px;
+    position: relative;
+    top: -350px;
+    left: 30px;
+    font-family: monospace;
+    text-align: center;
+    width: 200px;
+}
+
+.end-call {
+    cursor: pointer;
+    background: red;
+    color: #d9d9e8;
+    border-radius: 0 0 10px 10px;
+}

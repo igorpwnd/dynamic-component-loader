@@ -4,12 +4,22 @@ div:first-child {
     width: 100%;
 }
 
+h1 {
+    font-family: monospace;
+    text-align: center;
+    color: #00ff14ba;
+    margin: 0;
+}
+
 ul {
     margin: 0;
     padding: 10px;
     list-style-type: none;
     color: white;
     font-family: sans-serif;
+    height: auto;
+    overflow-y: auto;
+    max-height: 340px;
     li {
         cursor: pointer;
         padding: 10px 0;

@@ -18,7 +18,9 @@ export class AppComponent implements OnInit {
     { name: 'Camera', img: '/assets/camera.png', component: CameraComponent },
     { name: 'Clock', img: '/assets/clock.png', component: ClockComponent },
     { name: 'Contacts', img: '/assets/contacts.png', component: ContactsComponent },
-  ]
+  ];
+
+  public callingNowObject;
 
   constructor(private factoryResolver: ComponentFactoryResolver) { }
 
@@ -27,10 +29,18 @@ export class AppComponent implements OnInit {
   }
 
   injectComponent(component: any): void {
+    const myOwnNumber = '(703)521-7859';
     const factory = this.factoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     const componente = this.viewContainerRef.createComponent<any>(factory);
-    componente.instance.data = '';
+    componente.instance.data = myOwnNumber;
+
+    if (componente.instance.calling) {
+      componente.instance.calling.on('fired', (evt) => {
+        this.callingNowObject = evt;
+      });
+    }
+
   }
 
 }
