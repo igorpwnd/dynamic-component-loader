@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, Type, ViewChild, ViewContainerRef } from '@angular/core';
 import { CellphoneComponent } from './components/cellphone/cellphone.component';
 import { CameraComponent } from './components/camera/camera.component';
 import { ClockComponent } from './components/clock/clock.component';
@@ -28,15 +28,15 @@ export class AppComponent implements OnInit {
     this.injectComponent(ContactsComponent);
   }
 
-  injectComponent(component: any): void {
+  injectComponent(component: Type<any>): void {
     const myOwnNumber = '(703)521-7859';
     const factory = this.factoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
-    const componente = this.viewContainerRef.createComponent<any>(factory);
-    componente.instance.data = myOwnNumber;
+    const componentDy = this.viewContainerRef.createComponent<any>(factory);
+    componentDy.instance.data = myOwnNumber;
 
-    if (componente.instance.calling) {
-      componente.instance.calling.on('fired', (evt) => {
+    if (componentDy.instance.calling) {
+      componentDy.instance.calling.on('fired', (evt) => {
         this.callingNowObject = evt;
       });
     }
