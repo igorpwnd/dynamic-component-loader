@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     componentDy.instance.data = myOwnNumber;
 
     if (componentDy.instance.calling) {
-      componentDy.instance.calling.on('fired', (evt) => {
+      componentDy.instance.calling.subscribe((evt) => {
         this.callingNowObject = evt;
       });
     }

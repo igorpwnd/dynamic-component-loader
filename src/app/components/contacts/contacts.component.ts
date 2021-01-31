@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import * as EventEmitter from 'events';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-contacts',
@@ -23,7 +22,7 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void { }
 
   fireCallingEvent(person) {
-    this.calling.emit('fired', person);
+    this.calling.emit(person);
   }
 
 }
